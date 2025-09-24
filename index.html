@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handy Contractor - Home Interior & Exterior Services</title>
+    <title>Key Solutions - Premium Deck & Fence Contractors | 5-Year Warranty</title>
+    <meta name="description" content="Key Solutions specializes in premium deck and fence construction. 5-year warranty minimum, extended warranties available. Pressure treated and composite decking experts.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,10 +14,24 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d3748;
+            --accent-color: #e53e3e;
+            --gold-color: #d69e2e;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
         .container {
@@ -25,26 +42,27 @@
 
         /* Header */
         header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: #e74c3c;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
         }
 
         .nav-links {
@@ -54,208 +72,508 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-dark);
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #e74c3c;
+            color: var(--accent-color);
+        }
+
+        .cta-nav {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav:hover {
+            background: #c53030;
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/house-showcase.jpg.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
         }
 
         .hero-content {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero-text {
-            flex: 1;
-            text-align: left;
-            margin-right: 3rem;
-        }
-
-        .hero-mascot {
-            flex: 0 0 auto;
-        }
-
-        .hero-mascot img {
-            height: 300px;
-            width: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            position: relative;
+            z-index: 2;
         }
 
         .hero-text h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-text .highlight {
+            color: var(--gold-color);
         }
 
         .hero-text p {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            opacity: 0.9;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 15px 30px;
+        .warranty-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gold-color);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .warranty-badge i {
+            margin-right: 8px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
+            font-weight: 600;
             font-size: 1.1rem;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .cta-button:hover {
-            background: #c0392b;
+        .btn-primary:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Lead Magnet Section */
+        .lead-magnet {
+            background: var(--bg-light);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .lead-magnet::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(26, 54, 93, 0.05) 0%, rgba(45, 55, 72, 0.05) 100%);
+        }
+
+        .lead-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lead-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .lead-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .lead-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #e2e8f0;
+        }
+
+        .lead-form h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #c53030;
+            transform: translateY(-2px);
         }
 
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: var(--white);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--gold-color));
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .service-features li i {
+            color: var(--gold-color);
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Warranty Section */
+        .warranty {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .warranty-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .warranty-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .warranty-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .warranty-badge-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .warranty-badge-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .warranty-badge-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .service-card {
-            background: white;
+        .testimonial-card {
+            background: var(--white);
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent-color);
+            font-family: serif;
         }
 
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
+        .testimonial-text {
+            font-style: italic;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            color: var(--text-light);
         }
 
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #666;
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
         }
 
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background: #2c3e50;
-            color: white;
+            background: var(--white);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         .contact-info h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
         }
 
-        .contact-info p {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .form-group {
+        .contact-item {
+            display: flex;
+            align-items: center;
             margin-bottom: 1rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
+        .contact-item i {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            width: 20px;
         }
 
         /* Footer */
         footer {
-            background: #1a252f;
-            color: white;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--gold-color);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
             text-align: center;
-            padding: 2rem 0;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Responsive Design */
@@ -264,37 +582,50 @@
                 display: none;
             }
 
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-text {
-                text-align: center;
-                margin-right: 0;
-                margin-bottom: 2rem;
+            .hero-content,
+            .lead-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .hero-text h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-text p {
-                font-size: 1.1rem;
+            .cta-buttons {
+                flex-direction: column;
             }
 
-            .hero-mascot img {
-                height: 200px;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
+            .warranty-badges {
+                flex-direction: column;
+                align-items: center;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -302,28 +633,111 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">
-                Handy Contractor
-            </div>
+            <a href="#" class="logo">Key Solutions</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#warranty">Warranty</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#lead-magnet" class="cta-nav">Get Free Quote</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Professional Home Services</h1>
-                <p>Transform your home with our expert interior and exterior contracting services. Quality workmanship, reliable service, and competitive prices.</p>
-                <a href="#contact" class="cta-button">Get Free Quote</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in-up">
+                    <div class="warranty-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        5-Year Warranty Minimum
+                    </div>
+                    <h1>Premium <span class="highlight">Deck & Fence</span> Construction</h1>
+                    <p>You're LOSING MONEY hiring anyone else. We specialize in pressure treated and composite decking with unmatched quality and craftsmanship.</p>
+                    <div class="cta-buttons">
+                        <a href="#lead-magnet" class="btn-primary">
+                            <i class="fas fa-calculator"></i>
+                            Get Free Quote
+                        </a>
+                        <a href="#services" class="btn-secondary">
+                            <i class="fas fa-play"></i>
+                            View Our Work
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Beautiful Custom Deck Construction">
+                </div>
             </div>
-            <div class="hero-mascot">
-                <img src="images/mascot.jpg.png" alt="Handy Contractor Mascot">
+        </div>
+    </section>
+
+    <!-- Lead Magnet Section -->
+    <section id="lead-magnet" class="lead-magnet">
+        <div class="container">
+            <div class="lead-content">
+                <div class="lead-text">
+                    <h2>Get Your Free Deck & Fence Quote</h2>
+                    <p>Stop losing money with inferior contractors. Get a detailed quote from the experts who guarantee their work for 5+ years. Our clients save thousands by choosing quality over cheap alternatives.</p>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 2rem;">
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--gold-color); margin-right: 8px;"></i>
+                            <span>Free Consultation</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="color: var(--gold-color); margin-right: 8px;"></i>
+                            <span>5-Year Warranty</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lead-form">
+                    <h3>Get Your Free Quote</h3>
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project">Project Type *</label>
+                            <select id="project" name="project" required>
+                                <option value="">Select Project Type</option>
+                                <option value="deck">New Deck Construction</option>
+                                <option value="deck-repair">Deck Repair/Replacement</option>
+                                <option value="fence">New Fence Installation</option>
+                                <option value="fence-repair">Fence Repair/Replacement</option>
+                                <option value="both">Both Deck & Fence</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Project Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select Timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-month">Within 1 Month</option>
+                                <option value="3-months">Within 3 Months</option>
+                                <option value="6-months">Within 6 Months</option>
+                                <option value="planning">Just Planning</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Get My Free Quote
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -331,54 +745,93 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title">Our Specialized Services</h2>
+            <p class="section-subtitle">We don't do everything - we do decks and fences better than anyone else</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Interior Renovations</h3>
-                    <p>Complete interior makeovers including kitchens, bathrooms, flooring, and custom carpentry work.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Premium Deck Construction</h3>
+                    <p>Custom deck construction using pressure treated lumber and composite materials. Every deck is built to last decades, not years.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Pressure Treated Lumber</li>
+                        <li><i class="fas fa-check"></i> Composite Decking</li>
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> 5+ Year Warranty</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🔨</div>
-                    <h3>Exterior Improvements</h3>
-                    <p>Roofing, siding, decking, fencing, and outdoor living spaces to enhance your home's curb appeal.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Professional Fence Installation</h3>
+                    <p>Privacy, security, and beauty combined. Our fences are built to withstand the elements and provide lasting value to your property.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Privacy Fences</li>
+                        <li><i class="fas fa-check"></i> Security Fencing</li>
+                        <li><i class="fas fa-check"></i> Custom Gates</li>
+                        <li><i class="fas fa-check"></i> 5+ Year Warranty</li>
+                    </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Electrical Work</h3>
-                    <p>Safe and reliable electrical installations, repairs, and upgrades for your home.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚿</div>
-                    <h3>Plumbing Services</h3>
-                    <p>Professional plumbing repairs, installations, and maintenance for all your water needs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Painting & Finishing</h3>
-                    <p>Interior and exterior painting services with premium materials and expert application.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>General Repairs</h3>
-                    <p>Handyman services for all your home maintenance and repair needs.</p>
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Deck & Fence Repairs</h3>
+                    <p>Don't replace when you can repair. Our expert craftsmen can restore your existing deck or fence to like-new condition.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Structural Repairs</li>
+                        <li><i class="fas fa-check"></i> Board Replacement</li>
+                        <li><i class="fas fa-check"></i> Hardware Updates</li>
+                        <li><i class="fas fa-check"></i> 5+ Year Warranty</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Warranty Section -->
+    <section id="warranty" class="warranty">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose Handy Contractor?</h2>
-                    <p>With years of experience in the home improvement industry, we pride ourselves on delivering exceptional results for every project, big or small.</p>
-                    <p>Our team of skilled professionals is licensed, insured, and committed to providing quality workmanship that exceeds your expectations.</p>
-                    <p>We understand that your home is your most important investment, and we treat every project with the care and attention it deserves.</p>
+            <div class="warranty-content">
+                <h2>Our Unmatched Warranty Protection</h2>
+                <p>We're so confident in our work, we guarantee it for a minimum of 5 years with extended warranties available</p>
+                <div class="warranty-badges">
+                    <div class="warranty-badge-item">
+                        <h3>5 Years</h3>
+                        <p>Minimum Warranty</p>
+                    </div>
+                    <div class="warranty-badge-item">
+                        <h3>10 Years</h3>
+                        <p>Extended Available</p>
+                    </div>
+                    <div class="warranty-badge-item">
+                        <h3>100%</h3>
+                        <p>Workmanship Guarantee</p>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="images/house-showcase.jpg.jpg" alt="Beautiful Home Exterior - Example of Our Work" style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Key Solutions built our deck 8 years ago and it still looks brand new. The quality is unmatched and their warranty actually means something."</p>
+                    <div class="testimonial-author">- Sarah M., Homeowner</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"We hired them after our previous contractor's work failed after 2 years. Key Solutions fixed everything and it's been perfect for 6 years now."</p>
+                    <div class="testimonial-author">- Mike R., Property Manager</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The attention to detail is incredible. They treated our project like it was their own home. Worth every penny and then some."</p>
+                    <div class="testimonial-author">- Jennifer L., Business Owner</div>
                 </div>
             </div>
         </div>
@@ -387,40 +840,52 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Get In Touch</h2>
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p class="section-subtitle">Contact us today for your free consultation and quote</p>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><strong>Phone:</strong> (555) 123-4567</p>
-                    <p><strong>Email:</strong> info@handycontractor.com</p>
-                    <p><strong>Address:</strong> 123 Main Street, Your City, ST 12345</p>
-                    <p><strong>Hours:</strong> Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p><strong>Emergency Service:</strong> Available 24/7</p>
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@keysolutions.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Contractor Lane, Your City, ST 12345</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Fri: 7AM-6PM | Sat: 8AM-4PM</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Licensed, Bonded & Insured</span>
+                    </div>
                 </div>
-                <div class="contact-form">
-                    <h3>Request a Quote</h3>
-                    <form>
+                <div class="lead-form">
+                    <h3>Quick Contact</h3>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="contact-name">Name *</label>
+                            <input type="text" id="contact-name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <label for="contact-phone">Phone *</label>
+                            <input type="tel" id="contact-phone" name="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <input type="text" id="service" name="service">
+                            <label for="contact-message">Message *</label>
+                            <textarea id="contact-message" name="message" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Describe your project..."></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Send Message</button>
+                        <button type="submit" class="btn-submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -430,7 +895,35 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Handy Contractor. All rights reserved. | Licensed & Insured</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Key Solutions</h4>
+                    <p>Premium deck and fence contractors specializing in pressure treated and composite materials. 5-year warranty minimum with extended options available.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <a href="#services">Deck Construction</a>
+                    <a href="#services">Fence Installation</a>
+                    <a href="#services">Repairs & Maintenance</a>
+                    <a href="#services">Custom Design</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Warranty</h4>
+                    <a href="#warranty">5-Year Minimum</a>
+                    <a href="#warranty">Extended Options</a>
+                    <a href="#warranty">Workmanship Guarantee</a>
+                    <a href="#warranty">Material Warranty</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@keysolutions.com</p>
+                    <p>Licensed, Bonded & Insured</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Key Solutions. All rights reserved. | Licensed, Bonded & Insured</p>
+            </div>
         </div>
     </footer>
 
@@ -449,11 +942,48 @@
             });
         });
 
-        // Simple form handling
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Form handling
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will contact you soon.');
+            alert('Thank you! We\'ll contact you within 24 hours with your free quote.');
             this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#ffffff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and other elements
+        document.querySelectorAll('.service-card, .testimonial-card, .warranty-badge-item').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
