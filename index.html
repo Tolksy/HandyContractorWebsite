@@ -15,23 +15,24 @@
         }
 
         :root {
-            --primary-color: #1a365d;
+            --primary-color: #132d4d;
             --secondary-color: #2d3748;
-            --accent-color: #e53e3e;
-            --gold-color: #d69e2e;
+            --accent-color: #2f5233;
+            --gold-color: #c9941e;
             --text-dark: #2d3748;
             --text-light: #718096;
             --bg-light: #f7fafc;
             --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-dark);
             overflow-x: hidden;
+            font-weight: 400;
         }
 
         .container {
@@ -59,16 +60,17 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--primary-color);
             text-decoration: none;
+            letter-spacing: 0.01em;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
@@ -79,7 +81,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
 
         .cta-nav {
@@ -93,7 +95,7 @@
         }
 
         .cta-nav:hover {
-            background: #c53030;
+            background: #254229;
             transform: translateY(-2px);
         }
 
@@ -127,10 +129,11 @@
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            letter-spacing: 0.02em;
         }
 
         .hero-text .highlight {
@@ -180,7 +183,7 @@
         }
 
         .btn-primary:hover {
-            background: #c53030;
+            background: #254229;
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
@@ -221,7 +224,7 @@
         /* Lead Magnet Section */
         .lead-magnet {
             background: var(--bg-light);
-            padding: 80px 0;
+            padding: 100px 0;
             position: relative;
         }
 
@@ -273,7 +276,7 @@
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
@@ -320,13 +323,13 @@
         }
 
         .btn-submit:hover {
-            background: #c53030;
+            background: #254229;
             transform: translateY(-2px);
         }
 
         /* Services Section */
         .services {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
         }
 
@@ -336,6 +339,7 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--primary-color);
+            letter-spacing: 0.01em;
         }
 
         .section-subtitle {
@@ -357,7 +361,7 @@
 
         .service-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 16px;
             box-shadow: var(--shadow);
             border: 1px solid #e2e8f0;
@@ -377,7 +381,7 @@
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
         }
 
@@ -408,6 +412,7 @@
             align-items: center;
             margin-bottom: 0.5rem;
             color: var(--text-light);
+            line-height: 1.8;
         }
 
         .service-features li i {
@@ -420,7 +425,7 @@
         .warranty {
             background: var(--primary-color);
             color: var(--white);
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
 
@@ -465,7 +470,7 @@
 
         /* Testimonials */
         .testimonials {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--bg-light);
         }
 
@@ -490,7 +495,8 @@
             top: -10px;
             left: 20px;
             font-size: 4rem;
-            color: var(--accent-color);
+            color: var(--primary-color);
+            opacity: 0.1;
             font-family: serif;
         }
 
@@ -507,7 +513,7 @@
 
         /* Contact Section */
         .contact {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--white);
         }
 
@@ -563,6 +569,7 @@
             text-decoration: none;
             margin-bottom: 0.5rem;
             display: block;
+            font-weight: 300;
         }
 
         .footer-section a:hover {
@@ -590,7 +597,7 @@
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .cta-buttons {
@@ -640,7 +647,7 @@
                 <li><a href="#warranty">Warranty</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#lead-magnet" class="cta-nav">Get Free Quote</a>
+            <a href="#lead-magnet" class="cta-nav">Start Your Project</a>
         </nav>
     </header>
 
@@ -651,18 +658,16 @@
                 <div class="hero-text fade-in-up">
                     <div class="warranty-badge">
                         <i class="fas fa-shield-alt"></i>
-                        5-Year Warranty Minimum
+                        Guaranteed 5+ Years
                     </div>
-                    <h1>Premium <span class="highlight">Deck & Fence</span> Construction</h1>
-                    <p>You're LOSING MONEY hiring anyone else. We specialize in pressure treated and composite decking with unmatched quality and craftsmanship.</p>
+                    <h1>Built to Last. <span class="highlight">Designed to Inspire.</span></h1>
+                    <p>The outdoor space your home deserves. Every deck and fence we craft becomes the foundation for your family's most cherished moments—engineered to endure, designed to elevate.</p>
                     <div class="cta-buttons">
                         <a href="#lead-magnet" class="btn-primary">
-                            <i class="fas fa-calculator"></i>
-                            Get Free Quote
+                            Start Your Project
                         </a>
                         <a href="#services" class="btn-secondary">
-                            <i class="fas fa-play"></i>
-                            View Our Work
+                            Explore Our Work
                         </a>
                     </div>
                 </div>
@@ -678,21 +683,11 @@
         <div class="container">
             <div class="lead-content">
                 <div class="lead-text">
-                    <h2>Get Your Free Deck & Fence Quote</h2>
-                    <p>Stop losing money with inferior contractors. Get a detailed quote from the experts who guarantee their work for 5+ years. Our clients save thousands by choosing quality over cheap alternatives.</p>
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 2rem;">
-                        <div style="display: flex; align-items: center;">
-                            <i class="fas fa-check-circle" style="color: var(--gold-color); margin-right: 8px;"></i>
-                            <span>Free Consultation</span>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <i class="fas fa-check-circle" style="color: var(--gold-color); margin-right: 8px;"></i>
-                            <span>5-Year Warranty</span>
-                        </div>
-                    </div>
+                    <h2>Let's Build Something Remarkable Together</h2>
+                    <p>Every exceptional outdoor space begins with a conversation. Share your vision with us, and we'll provide a comprehensive project plan backed by our 5-year craftsmanship guarantee.</p>
                 </div>
                 <div class="lead-form">
-                    <h3>Get Your Free Quote</h3>
+                    <h3>Tell Us About Your Vision</h3>
                     <form id="quoteForm">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
@@ -733,8 +728,7 @@
                             <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                         </div>
                         <button type="submit" class="btn-submit">
-                            <i class="fas fa-paper-plane"></i>
-                            Get My Free Quote
+                            Begin Your Project
                         </button>
                     </form>
                 </div>
@@ -745,15 +739,15 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Our Specialized Services</h2>
-            <p class="section-subtitle">We don't do everything - we do decks and fences better than anyone else</p>
+            <h2 class="section-title">What We Create</h2>
+            <p class="section-subtitle">Precision-built outdoor structures designed to enhance your home's value and your quality of life.</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3>Premium Deck Construction</h3>
-                    <p>Custom deck construction using pressure treated lumber and composite materials. Every deck is built to last decades, not years.</p>
+                    <h3>Custom Deck Construction</h3>
+                    <p>Transform your backyard into an outdoor sanctuary. Every detail engineered for durability, every sightline designed for beauty, every board selected to withstand decades of memories.</p>
                     <ul class="service-features">
                         <li><i class="fas fa-check"></i> Pressure Treated Lumber</li>
                         <li><i class="fas fa-check"></i> Composite Decking</li>
@@ -765,8 +759,8 @@
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Professional Fence Installation</h3>
-                    <p>Privacy, security, and beauty combined. Our fences are built to withstand the elements and provide lasting value to your property.</p>
+                    <h3>Fence Design & Installation</h3>
+                    <p>Your boundary redefined. Privacy, security, and enduring elegance—crafted to complement your home's architecture and protect what matters most.</p>
                     <ul class="service-features">
                         <li><i class="fas fa-check"></i> Privacy Fences</li>
                         <li><i class="fas fa-check"></i> Security Fencing</li>
@@ -778,8 +772,8 @@
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3>Deck & Fence Repairs</h3>
-                    <p>Don't replace when you can repair. Our expert craftsmen can restore your existing deck or fence to like-new condition.</p>
+                    <h3>Restoration & Repair</h3>
+                    <p>Extending the life of quality craftsmanship. When repair makes sense, our expert assessment and meticulous restoration work can add years to your investment.</p>
                     <ul class="service-features">
                         <li><i class="fas fa-check"></i> Structural Repairs</li>
                         <li><i class="fas fa-check"></i> Board Replacement</li>
@@ -795,16 +789,16 @@
     <section id="warranty" class="warranty">
         <div class="container">
             <div class="warranty-content">
-                <h2>Our Unmatched Warranty Protection</h2>
-                <p>We're so confident in our work, we guarantee it for a minimum of 5 years with extended warranties available</p>
+                <h2>Our Commitment to You</h2>
+                <p>Quality construction shouldn't come with crossed fingers. Every project includes a comprehensive 5-year guarantee, with extended protection available for complete peace of mind.</p>
                 <div class="warranty-badges">
                     <div class="warranty-badge-item">
                         <h3>5 Years</h3>
-                        <p>Minimum Warranty</p>
+                        <p>Minimum Guarantee</p>
                     </div>
                     <div class="warranty-badge-item">
                         <h3>10 Years</h3>
-                        <p>Extended Available</p>
+                        <p>Extended Protection</p>
                     </div>
                     <div class="warranty-badge-item">
                         <h3>100%</h3>
@@ -819,18 +813,18 @@
     <section class="testimonials">
         <div class="container">
             <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers</p>
+            <p class="section-subtitle">The stories behind the craftsmanship</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Key Solutions built our deck 8 years ago and it still looks brand new. The quality is unmatched and their warranty actually means something."</p>
+                    <p class="testimonial-text">"Our deck has become the heart of our home. Eight years later, it's where we celebrate birthdays, host dinners, and watch sunsets. Still flawless."</p>
                     <div class="testimonial-author">- Sarah M., Homeowner</div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"We hired them after our previous contractor's work failed after 2 years. Key Solutions fixed everything and it's been perfect for 6 years now."</p>
+                    <p class="testimonial-text">"When we needed a contractor who could deliver on their promises, Key Solutions rebuilt our trust along with our deck. Six years of perfection."</p>
                     <div class="testimonial-author">- Mike R., Property Manager</div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"The attention to detail is incredible. They treated our project like it was their own home. Worth every penny and then some."</p>
+                    <p class="testimonial-text">"The precision and care they brought to our project exceeded anything we'd experienced. This is what craftsmanship looks like."</p>
                     <div class="testimonial-author">- Jennifer L., Business Owner</div>
                 </div>
             </div>
@@ -840,8 +834,8 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Ready to Get Started?</h2>
-            <p class="section-subtitle">Contact us today for your free consultation and quote</p>
+            <h2 class="section-title">Let's Start the Conversation</h2>
+            <p class="section-subtitle">Reach out today. We'll respond within 24 hours to discuss your project and schedule an on-site consultation.</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
@@ -885,7 +879,7 @@
                             <label for="contact-message">Message *</label>
                             <textarea id="contact-message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit">Send Message</button>
+                        <button type="submit" class="btn-submit">Send</button>
                     </form>
                 </div>
             </div>
@@ -898,7 +892,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Key Solutions</h4>
-                    <p>Premium deck and fence contractors specializing in pressure treated and composite materials. 5-year warranty minimum with extended options available.</p>
+                    <p>Outdoor living spaces engineered to last. Every project backed by our 5-year craftsmanship guarantee.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
