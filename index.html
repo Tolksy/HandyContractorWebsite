@@ -340,7 +340,7 @@
             font-weight: 400;
         }
 
-        .projects-grid {
+        .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
@@ -349,7 +349,7 @@
             padding: 0 20px;
         }
 
-        .project-card {
+        .product-card {
             position: relative;
             background: var(--bg-light);
             border-radius: 18px;
@@ -358,58 +358,76 @@
             cursor: pointer;
         }
 
-        .project-card:hover {
+        .product-card:hover {
             transform: scale(1.02);
         }
 
-        .project-card.featured {
+        .product-card.featured {
             grid-column: span 2;
         }
 
-        .project-image {
+        .product-image {
             width: 100%;
             height: 500px;
             object-fit: cover;
         }
 
-        .project-card.featured .project-image {
+        .product-card.featured .product-image {
             height: 600px;
         }
 
-        .project-info {
+        .product-info {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             padding: 3rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
             color: white;
         }
 
-        .project-tag {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.8);
+        .product-category {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
             margin-bottom: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
 
-        .project-title {
+        .product-title {
             font-size: 1.75rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             line-height: 1.2;
         }
 
-        .project-card.featured .project-title {
+        .product-card.featured .product-title {
             font-size: 2.5rem;
         }
 
-        .project-description {
+        .product-description {
             font-size: 1rem;
             color: rgba(255,255,255,0.9);
             line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
         }
 
         /* Services Section */
@@ -705,32 +723,32 @@
                 font-size: 1.2rem;
             }
 
-            .projects-grid {
+            .products-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
             }
 
-            .project-card.featured {
+            .product-card.featured {
                 grid-column: span 1;
             }
 
-            .project-image {
+            .product-image {
                 height: 400px;
             }
 
-            .project-card.featured .project-image {
+            .product-card.featured .product-image {
                 height: 450px;
             }
 
-            .project-info {
+            .product-info {
                 padding: 2rem;
             }
 
-            .project-title {
+            .product-title {
                 font-size: 1.5rem;
             }
 
-            .project-card.featured .project-title {
+            .product-card.featured .product-title {
                 font-size: 2rem;
             }
 
@@ -780,7 +798,7 @@
         <nav class="container">
             <a href="#" class="logo">Key Solutions</a>
             <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Products</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#warranty">Guarantee</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -791,24 +809,24 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text fade-in-up">
-                <div class="warranty-badge">
-                    <i class="fas fa-shield-alt"></i>
+            <div class="hero-content">
+                <div class="hero-text fade-in-up">
+                    <div class="warranty-badge">
+                        <i class="fas fa-shield-alt"></i>
                     Guaranteed 5+ Years
-                </div>
+                    </div>
                 <h1>Built to Last. <span class="highlight">Designed to Inspire.</span></h1>
                 <p>The outdoor space your home deserves. Every deck and fence we craft becomes the foundation for your family's most cherished moments.</p>
-                <div class="cta-buttons">
-                    <a href="#lead-magnet" class="btn-primary">
+                    <div class="cta-buttons">
+                        <a href="#lead-magnet" class="btn-primary">
                         Start Your Project
-                    </a>
+                        </a>
                     <a href="#projects" class="btn-secondary">
-                        View Projects →
-                    </a>
+                        View Products →
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image fade-in-up">
+                <div class="hero-image fade-in-up">
                 <img src="images/house-showcase.jpg.jpg" alt="Beautiful Custom Deck Construction">
             </div>
         </div>
@@ -872,60 +890,81 @@
         </div>
     </section>
 
-    <!-- Projects Showcase Section -->
+    <!-- Products Showcase Section -->
     <section id="projects" class="projects">
         <div class="projects-header">
-            <h2>Featured Projects</h2>
-            <p>Craftsmanship that speaks for itself</p>
+            <h2>Our Products</h2>
+            <p>Precision-crafted outdoor living solutions</p>
         </div>
-        <div class="projects-grid">
-            <!-- Featured Project -->
-            <div class="project-card featured">
-                <img src="images/roof and yard 1.jpg" alt="Premium Deck Construction" class="project-image">
-                <div class="project-info">
-                    <div class="project-tag">Featured Project</div>
-                    <h3 class="project-title">Elevated Outdoor Living</h3>
-                    <p class="project-description">A stunning multi-level deck that transforms an ordinary backyard into an architectural masterpiece.</p>
+        <div class="products-grid">
+            <!-- Product 1: Elevated Deck Systems -->
+            <div class="product-card featured">
+                <img src="images/roof and yard 1.jpg" alt="Elevated Deck Systems" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Elevated Deck Systems</div>
+                    <h3 class="product-title">Outdoor Living, Redefined</h3>
+                    <p class="product-description">Multi-level decks engineered for challenging terrain. Where architecture meets nature.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Hillside Construction</span>
+                        <span class="feature-tag">Multi-Level Design</span>
+                        <span class="feature-tag">Architectural Integration</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Project 2 -->
-            <div class="project-card">
-                <img src="images/roof 1.jpeg" alt="Custom Roofing and Deck" class="project-image">
-                <div class="project-info">
-                    <div class="project-tag">Deck Construction</div>
-                    <h3 class="project-title">Modern Sanctuary</h3>
-                    <p class="project-description">Precision-built deck with clean lines and lasting durability.</p>
+            <!-- Product 2: Covered Outdoor Structures -->
+            <div class="product-card">
+                <img src="images/roof 1.jpeg" alt="Covered Outdoor Structures" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Covered Structures</div>
+                    <h3 class="product-title">All-Weather Living</h3>
+                    <p class="product-description">Year-round outdoor comfort with precision-built covered spaces.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Weather Protection</span>
+                        <span class="feature-tag">Year-Round Use</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Project 3 -->
-            <div class="project-card">
-                <img src="images/roof 2.jpg" alt="Premium Deck with Roof" class="project-image">
-                <div class="project-info">
-                    <div class="project-tag">Complete Solution</div>
-                    <h3 class="project-title">All-Weather Comfort</h3>
-                    <p class="project-description">Covered deck design for year-round enjoyment.</p>
+            <!-- Product 3: Premium Hardscaping -->
+            <div class="product-card">
+                <img src="images/roof 2.jpg" alt="Premium Hardscaping" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Hardscaping Solutions</div>
+                    <h3 class="product-title">Foundation of Luxury</h3>
+                    <p class="product-description">Stamped concrete and retaining walls that define your outdoor space.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Stamped Concrete</span>
+                        <span class="feature-tag">Retaining Walls</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Project 4 -->
-            <div class="project-card">
-                <img src="images/roof 3.jpeg" alt="Elegant Deck Design" class="project-image">
-                <div class="project-info">
-                    <div class="project-tag">Premium Build</div>
-                    <h3 class="project-title">Timeless Elegance</h3>
-                    <p class="project-description">Where form meets function in perfect harmony.</p>
+            <!-- Product 4: Integrated Architecture -->
+            <div class="product-card">
+                <img src="images/roof 3.jpeg" alt="Integrated Landscape Architecture" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Integrated Architecture</div>
+                    <h3 class="product-title">Seamless Flow</h3>
+                    <p class="product-description">Complete outdoor transformations that blur the line between inside and out.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Complete Design</span>
+                        <span class="feature-tag">Lifestyle Integration</span>
+                    </div>
                 </div>
             </div>
             
-            <!-- Project 5 -->
-            <div class="project-card">
-                <img src="images/house-showcase.jpg.jpg" alt="Complete Home Transformation" class="project-image">
-                <div class="project-info">
-                    <div class="project-tag">Full Renovation</div>
-                    <h3 class="project-title">Complete Transformation</h3>
-                    <p class="project-description">A comprehensive outdoor renovation that redefines luxury living.</p>
+            <!-- Product 5: Custom Fencing -->
+            <div class="product-card">
+                <img src="images/house-showcase.jpg.jpg" alt="Custom Fencing & Privacy" class="product-image">
+                <div class="product-info">
+                    <div class="product-category">Privacy Systems</div>
+                    <h3 class="product-title">Boundaries Redefined</h3>
+                    <p class="product-description">Custom fencing solutions that enhance security and aesthetic appeal.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Privacy Solutions</span>
+                        <span class="feature-tag">Custom Design</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1171,7 +1210,7 @@
         }, observerOptions);
 
         // Observe all service cards and other elements
-        document.querySelectorAll('.service-card, .testimonial-card, .warranty-badge-item, .project-card').forEach(el => {
+        document.querySelectorAll('.service-card, .testimonial-card, .warranty-badge-item, .product-card').forEach(el => {
             observer.observe(el);
         });
     </script>
