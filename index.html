@@ -43,8 +43,10 @@
 
         /* Header */
         header {
-            background: var(--white);
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
@@ -85,97 +87,91 @@
         }
 
         .cta-nav {
-            background: var(--accent-color);
+            background: #0071e3;
             color: var(--white);
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 8px 18px;
+            border-radius: 980px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
         }
 
         .cta-nav:hover {
-            background: #254229;
-            transform: translateY(-2px);
+            background: #0077ed;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-            padding: 120px 0 80px;
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 80px 0 60px;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
-            background-size: cover;
+            text-align: center;
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            max-width: 980px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
         .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: 0.02em;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.08;
+            letter-spacing: -0.005em;
+            color: var(--text-dark);
         }
 
         .hero-text .highlight {
-            color: var(--gold-color);
+            color: var(--text-dark);
         }
 
         .hero-text p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .warranty-badge {
             display: inline-flex;
             align-items: center;
-            background: var(--gold-color);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
         .warranty-badge i {
-            margin-right: 8px;
+            margin-right: 6px;
+            font-size: 0.9rem;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
         }
 
         .btn-primary {
-            background: var(--accent-color);
+            background: #0071e3;
             color: var(--white);
-            padding: 16px 32px;
-            border-radius: 8px;
+            padding: 12px 22px;
+            border-radius: 980px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 400;
+            font-size: 1rem;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
@@ -183,20 +179,17 @@
         }
 
         .btn-primary:hover {
-            background: #254229;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            background: #0077ed;
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 14px 30px;
-            border-radius: 8px;
+            color: #0071e3;
+            border: none;
+            padding: 12px 22px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 400;
+            font-size: 1rem;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
@@ -204,38 +197,28 @@
         }
 
         .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-2px);
+            text-decoration: underline;
         }
 
         .hero-image {
             position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .hero-image img {
             width: 100%;
-            height: 400px;
+            height: auto;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 12px;
         }
 
         /* Lead Magnet Section */
         .lead-magnet {
-            background: var(--bg-light);
+            background: #f5f5f7;
             padding: 100px 0;
             position: relative;
-        }
-
-        .lead-magnet::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(26, 54, 93, 0.05) 0%, rgba(45, 55, 72, 0.05) 100%);
         }
 
         .lead-content {
@@ -248,31 +231,34 @@
         }
 
         .lead-text h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.005em;
         }
 
         .lead-text p {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--text-light);
             margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.5;
         }
 
         .lead-form {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid #e2e8f0;
+            padding: 3rem;
+            border-radius: 18px;
+            border: 1px solid #d2d2d7;
         }
 
         .lead-form h3 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            letter-spacing: -0.005em;
         }
 
         .form-group {
@@ -290,18 +276,20 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.2s ease;
+            background: #f5f5f7;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: #0071e3;
+            background: var(--white);
         }
 
         .form-group textarea {
@@ -311,35 +299,132 @@
 
         .btn-submit {
             width: 100%;
-            background: var(--accent-color);
+            background: #0071e3;
             color: var(--white);
-            padding: 16px;
+            padding: 14px;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 400;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .btn-submit:hover {
-            background: #254229;
-            transform: translateY(-2px);
+            background: #0077ed;
+        }
+
+        /* Projects Section - Apple Style */
+        .projects {
+            padding: 80px 0 100px;
+            background: var(--white);
+        }
+
+        .projects-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .projects-header h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            letter-spacing: -0.005em;
+            line-height: 1.08;
+        }
+
+        .projects-header p {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .project-card {
+            position: relative;
+            background: var(--bg-light);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .project-card.featured .project-image {
+            height: 600px;
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            color: white;
+        }
+
+        .project-tag {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .project-card.featured .project-title {
+            font-size: 2.5rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
         }
 
         /* Services Section */
         .services {
             padding: 100px 0;
-            background: var(--white);
+            background: var(--bg-light);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary-color);
-            letter-spacing: 0.01em;
+            color: var(--text-dark);
+            letter-spacing: -0.005em;
         }
 
         .section-subtitle {
@@ -350,6 +435,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 400;
         }
 
         .services-grid {
@@ -362,40 +448,31 @@
         .service-card {
             background: var(--white);
             padding: 3rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            border: 1px solid #d2d2d7;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), var(--gold-color));
-        }
-
         .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .service-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
+            font-size: 2.5rem;
+            color: #0071e3;
             margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
 
         .service-card h3 {
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--text-dark);
+            letter-spacing: -0.005em;
         }
 
         .service-card p {
@@ -423,22 +500,24 @@
 
         /* Warranty Section */
         .warranty {
-            background: var(--primary-color);
-            color: var(--white);
+            background: #f5f5f7;
+            color: var(--text-dark);
             padding: 100px 0;
             text-align: center;
         }
 
         .warranty-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.005em;
         }
 
         .warranty-content p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
+            font-size: 1.5rem;
+            margin-bottom: 4rem;
+            color: var(--text-light);
+            font-weight: 400;
         }
 
         .warranty-badges {
@@ -446,32 +525,37 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .warranty-badge-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 18px;
+            border: 1px solid #d2d2d7;
+            flex: 1;
+            min-width: 250px;
         }
 
         .warranty-badge-item h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold-color);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
             margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
 
         .warranty-badge-item p {
-            font-size: 1rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 400;
         }
 
         /* Testimonials */
         .testimonials {
             padding: 100px 0;
-            background: var(--bg-light);
+            background: var(--white);
         }
 
         .testimonials-grid {
@@ -479,14 +563,17 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .testimonial-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
+            background: #f5f5f7;
+            padding: 3rem;
+            border-radius: 18px;
             position: relative;
+            border: 1px solid #d2d2d7;
         }
 
         .testimonial-card::before {
@@ -495,26 +582,28 @@
             top: -10px;
             left: 20px;
             font-size: 4rem;
-            color: var(--primary-color);
-            opacity: 0.1;
+            color: var(--text-dark);
+            opacity: 0.08;
             font-family: serif;
         }
 
         .testimonial-text {
-            font-style: italic;
             margin-bottom: 1.5rem;
-            color: var(--text-light);
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
         .testimonial-author {
-            font-weight: 600;
-            color: var(--primary-color);
+            font-weight: 500;
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background: var(--white);
+            background: #f5f5f7;
         }
 
         .contact-content {
@@ -524,10 +613,11 @@
         }
 
         .contact-info h3 {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            color: var(--primary-color);
+            color: var(--text-dark);
+            letter-spacing: -0.005em;
         }
 
         .contact-item {
@@ -537,16 +627,17 @@
         }
 
         .contact-item i {
-            color: var(--accent-color);
+            color: #0071e3;
             margin-right: 1rem;
             width: 20px;
         }
 
         /* Footer */
         footer {
-            background: var(--secondary-color);
-            color: var(--white);
+            background: #f5f5f7;
+            color: var(--text-dark);
             padding: 3rem 0 2rem;
+            border-top: 1px solid #d2d2d7;
         }
 
         .footer-content {
@@ -557,30 +648,32 @@
         }
 
         .footer-section h4 {
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--gold-color);
+            color: var(--text-dark);
         }
 
         .footer-section p,
         .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-light);
             text-decoration: none;
             margin-bottom: 0.5rem;
             display: block;
-            font-weight: 300;
+            font-weight: 400;
+            font-size: 0.9rem;
         }
 
         .footer-section a:hover {
-            color: var(--white);
+            color: var(--text-dark);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #d2d2d7;
             padding-top: 2rem;
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-light);
+            font-size: 0.85rem;
         }
 
         /* Responsive Design */
@@ -597,6 +690,47 @@
             }
 
             .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+
+            .projects-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .projects-header p {
+                font-size: 1.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .project-card.featured {
+                grid-column: span 1;
+            }
+
+            .project-image {
+                height: 400px;
+            }
+
+            .project-card.featured .project-image {
+                height: 450px;
+            }
+
+            .project-info {
+                padding: 2rem;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-card.featured .project-title {
                 font-size: 2rem;
             }
 
@@ -611,6 +745,10 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
         }
 
@@ -642,9 +780,9 @@
         <nav class="container">
             <a href="#" class="logo">Key Solutions</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#warranty">Warranty</a></li>
+                <li><a href="#warranty">Guarantee</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#lead-magnet" class="cta-nav">Start Your Project</a>
@@ -653,27 +791,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text fade-in-up">
-                    <div class="warranty-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        Guaranteed 5+ Years
-                    </div>
-                    <h1>Built to Last. <span class="highlight">Designed to Inspire.</span></h1>
-                    <p>The outdoor space your home deserves. Every deck and fence we craft becomes the foundation for your family's most cherished moments—engineered to endure, designed to elevate.</p>
-                    <div class="cta-buttons">
-                        <a href="#lead-magnet" class="btn-primary">
-                            Start Your Project
-                        </a>
-                        <a href="#services" class="btn-secondary">
-                            Explore Our Work
-                        </a>
-                    </div>
+        <div class="hero-content">
+            <div class="hero-text fade-in-up">
+                <div class="warranty-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    Guaranteed 5+ Years
                 </div>
-                <div class="hero-image fade-in-up">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c6a0c3f2fcc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Beautiful Custom Deck Construction">
+                <h1>Built to Last. <span class="highlight">Designed to Inspire.</span></h1>
+                <p>The outdoor space your home deserves. Every deck and fence we craft becomes the foundation for your family's most cherished moments.</p>
+                <div class="cta-buttons">
+                    <a href="#lead-magnet" class="btn-primary">
+                        Start Your Project
+                    </a>
+                    <a href="#projects" class="btn-secondary">
+                        View Projects →
+                    </a>
                 </div>
+            </div>
+            <div class="hero-image fade-in-up">
+                <img src="images/house-showcase.jpg.jpg" alt="Beautiful Custom Deck Construction">
             </div>
         </div>
     </section>
@@ -731,6 +867,65 @@
                             Begin Your Project
                         </button>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase Section -->
+    <section id="projects" class="projects">
+        <div class="projects-header">
+            <h2>Featured Projects</h2>
+            <p>Craftsmanship that speaks for itself</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Featured Project -->
+            <div class="project-card featured">
+                <img src="images/roof and yard 1.jpg" alt="Premium Deck Construction" class="project-image">
+                <div class="project-info">
+                    <div class="project-tag">Featured Project</div>
+                    <h3 class="project-title">Elevated Outdoor Living</h3>
+                    <p class="project-description">A stunning multi-level deck that transforms an ordinary backyard into an architectural masterpiece.</p>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <img src="images/roof 1.jpeg" alt="Custom Roofing and Deck" class="project-image">
+                <div class="project-info">
+                    <div class="project-tag">Deck Construction</div>
+                    <h3 class="project-title">Modern Sanctuary</h3>
+                    <p class="project-description">Precision-built deck with clean lines and lasting durability.</p>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <img src="images/roof 2.jpg" alt="Premium Deck with Roof" class="project-image">
+                <div class="project-info">
+                    <div class="project-tag">Complete Solution</div>
+                    <h3 class="project-title">All-Weather Comfort</h3>
+                    <p class="project-description">Covered deck design for year-round enjoyment.</p>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card">
+                <img src="images/roof 3.jpeg" alt="Elegant Deck Design" class="project-image">
+                <div class="project-info">
+                    <div class="project-tag">Premium Build</div>
+                    <h3 class="project-title">Timeless Elegance</h3>
+                    <p class="project-description">Where form meets function in perfect harmony.</p>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card">
+                <img src="images/house-showcase.jpg.jpg" alt="Complete Home Transformation" class="project-image">
+                <div class="project-info">
+                    <div class="project-tag">Full Renovation</div>
+                    <h3 class="project-title">Complete Transformation</h3>
+                    <p class="project-description">A comprehensive outdoor renovation that redefines luxury living.</p>
                 </div>
             </div>
         </div>
@@ -952,12 +1147,12 @@
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.9)';
+                header.style.backdropFilter = 'blur(20px)';
             } else {
-                header.style.background = '#ffffff';
-                header.style.backdropFilter = 'none';
+                header.style.background = 'rgba(255, 255, 255, 0.8)';
+                header.style.backdropFilter = 'blur(20px)';
             }
         });
 
@@ -976,7 +1171,7 @@
         }, observerOptions);
 
         // Observe all service cards and other elements
-        document.querySelectorAll('.service-card, .testimonial-card, .warranty-badge-item').forEach(el => {
+        document.querySelectorAll('.service-card, .testimonial-card, .warranty-badge-item, .project-card').forEach(el => {
             observer.observe(el);
         });
     </script>
