@@ -3,479 +3,591 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Solutions - Custom Carpentry, Concrete Slabs & Roofing | 5-Year Warranty</title>
-    <meta name="description" content="Key Solutions specializes in custom carpentry, premium concrete slabs, and roofing services. Expert craftsmanship with 5-year warranty. Your complete construction solution.">
-    <meta name="keywords" content="custom carpentry, concrete slabs, roofing services, deck construction, home improvement, construction contractor">
-    <meta name="author" content="Key Solutions">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
-    <link rel="preload" href="styles.css" as="style">
-    
-    <!-- External stylesheets -->
+    <title>Key Solutions - Expert Craftsmanship | Custom Carpentry, Concrete & Roofing</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: #ffffff;
+            color: #2d3748;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .warranty-badge {
+            display: inline-flex;
+            align-items: center;
+            color: #2f5233;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .warranty-badge i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.08;
+            color: #2d3748;
+        }
+
+        .highlight {
+            color: #2d3748;
+        }
+
+        .highlight p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #718096;
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .hero-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0.5rem;
+            padding: 0 1rem;
+        }
+
+        .image-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-slab-image,
+        .hero-deck-image,
+        .hero-roof-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .clickable {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .clickable:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .concrete-pricing-popup,
+        .deck-pricing-popup,
+        .roofing-pricing-popup {
+            position: relative;
+            top: 15px;
+            left: 0;
+            transform: none;
+            background: #ffffff;
+            border: 1px solid #d2d2d7;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            margin-top: 15px;
+        }
+
+        .concrete-pricing-popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .concrete-pricing-popup h3,
+        .deck-pricing-popup h3,
+        .roofing-pricing-popup h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #e8f5e8;
+            padding-bottom: 0.75rem;
+        }
+
+        .pricing-grid {
+            margin-bottom: 1rem;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+
+        .pricing-item:hover {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .finish-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1rem;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #2f5233;
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .popup-cta {
+            text-align: center;
+            border-top: 2px solid #e8f5e8;
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .urgency-text {
+            font-size: 0.95rem;
+            color: #2f5233;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            background: #f8f9fa;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border-left: 4px solid #2f5233;
+        }
+
+        .btn-get-quote {
+            background: linear-gradient(135deg, #2f5233, #1e3a20);
+            color: #ffffff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(47, 82, 51, 0.3);
+        }
+
+        .btn-get-quote:hover {
+            background: linear-gradient(135deg, #1e3a20, #2f5233);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(47, 82, 51, 0.4);
+        }
+
+        .deck-pricing-popup.show,
+        .roofing-pricing-popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Contact Information Section */
+        .contact-section {
+            background: #f8f9fa;
+            padding: .5rem 0;
+            margin-top: .5rem;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+            color: #2f5233;
+            width: 24px;
+        }
+
+        .contact-item span {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .service-area {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .service-area h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .service-area p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+
+        .service-area-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .service-area-list li {
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+
+
+            .hero-images {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero-slab-image,
+            .hero-deck-image,
+            .hero-roof-image {
+                height: 200px;
+            }
+
+            .concrete-pricing-popup,
+            .deck-pricing-popup,
+            .roofing-pricing-popup {
+                padding: 1.5rem;
+                margin-top: 10px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .service-area-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .concrete-pricing-popup,
+            .deck-pricing-popup,
+            .roofing-pricing-popup {
+                padding: 1rem;
+                margin-top: 8px;
+            }
+
+            .contact-section {
+                padding: 2rem 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo">Key Solutions</a>
-            <ul class="nav-links">
-                <li><a href="#projects">Our Work</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#warranty">Guarantee</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#lead-magnet" class="cta-nav">Start Your Project</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-text fade-in-up">
-                <div class="warranty-badge">
-                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    Guaranteed 5+ Years
-                </div>
-                <h1>Expert Craftsmanship Across 3 Specialties</h1>
-                <div class="highlight">
-                    <p>Woodworking</p>
-                    <p>Concrete & Flatwork</p>
-                    <p>Building Envelope & Roofing</p>
-                </div>
-                <p>10+ years experience custom home building, from excavation, to the last shingle on the roof.</p>
-                <div class="cta-buttons">
-                    <a href="#lead-magnet" class="btn-primary">
-                        Start Your Project
-                    </a>
-                    <a href="#projects" class="btn-secondary">
-                        View Our Work →
-                    </a>
-                </div>
+            <div class="warranty-badge">
+                <i class="fas fa-shield-alt"></i>
+                Guaranteed 5+ Years
             </div>
-            <div class="hero-images fade-in-up">
-                <img src="images/(Slab) Square.jpg" 
-                     alt="Premium Concrete Slabs - Click to learn more" 
-                     class="hero-slab-image clickable" 
-                     role="button"
-                     tabindex="0"
-                     aria-label="View concrete slab services">
-                <img src="images/(Carpentry) Deck 2.png" 
-                     alt="Custom Deck Construction and Outdoor Living - Click to learn more" 
-                     class="hero-deck-image clickable" 
-                     role="button"
-                     tabindex="0"
-                     aria-label="View deck construction services">
-                <img src="images/(roof) 3.jpeg" 
-                     alt="Professional Roofing Services - Click to learn more" 
-                     class="hero-roof-image clickable" 
-                     role="button"
-                     tabindex="0"
-                     aria-label="View roofing services">
+            <h1>Expert Craftsmanship Across 3 Specialties</h1>
+            <div class="highlight">
+                <p>Woodworking</p>
+                <p>Concrete & Flatwork</p>
+                <p>Building Envelope & Roofing</p>
+            </div>
+            <p>10+ years experience custom home building, from excavation, to the last shingle on the roof.</p>
+            <div class="hero-images">
+                <div class="image-container">
+                    <img src="images/(Slab) Square.jpg" alt="Premium Concrete Slabs" class="hero-slab-image clickable">
+                    <div class="concrete-pricing-popup" id="concrete-pricing">
+                        <h3>Concrete Finish Pricing</h3>
+                        <div class="pricing-grid">
+                            <div class="pricing-item">
+                                <span class="finish-name">Broom Finish</span>
+                                <span class="price">$8-12/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Pavers</span>
+                                <span class="price">$12-18/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Square Pattern</span>
+                                <span class="price">$10-15/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Natural Stone</span>
+                                <span class="price">$15-22/sq ft</span>
+                            </div>
+                        </div>
+                        <div class="popup-cta">
+                            <p class="urgency-text">Limited time: Free consultation + 10% off your first project</p>
+                            <button class="btn-get-quote">Get Your Free Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="images/(Carpentry) Deck 2.png" alt="Custom Deck Construction" class="hero-deck-image clickable">
+                    <div class="deck-pricing-popup" id="deck-pricing">
+                        <h3>Deck Construction Pricing</h3>
+                        <div class="pricing-grid">
+                            <div class="pricing-item">
+                                <span class="finish-name">Pressure Treated</span>
+                                <span class="price">$15-25/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Composite Decking</span>
+                                <span class="price">$25-35/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Hardwood Decking</span>
+                                <span class="price">$30-45/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Deck with Pergola</span>
+                                <span class="price">$35-55/sq ft</span>
+                            </div>
+                        </div>
+                        <div class="popup-cta">
+                            <p class="urgency-text">Spring Special: Free design consultation + 15% off materials</p>
+                            <button class="btn-get-quote">Get Your Free Quote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="images/(roof) 3.jpeg" alt="Professional Roofing Services" class="hero-roof-image clickable">
+                    <div class="roofing-pricing-popup" id="roofing-pricing">
+                        <h3>Roofing Types & Pricing</h3>
+                        <div class="pricing-grid">
+                            <div class="pricing-item">
+                                <span class="finish-name">Asphalt Shingles</span>
+                                <span class="price">$3-6/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Metal Roofing</span>
+                                <span class="price">$5-12/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Flat Roof System</span>
+                                <span class="price">$4-8/sq ft</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span class="finish-name">Slate/Tile</span>
+                                <span class="price">$8-15/sq ft</span>
+                            </div>
+                        </div>
+                        <div class="popup-cta">
+                            <p class="urgency-text">Storm Season Special: Free inspection + 20% off repairs</p>
+                            <button class="btn-get-quote">Get Your Free Quote</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Slab Details Section -->
-    <section id="slab-details" class="section slab-details" style="display: none;" aria-hidden="true">
-        <div class="container">
-            <div class="section-header">
-                <h2>Premium Concrete Slabs</h2>
-                <p>Expert concrete flatwork with proven ROI and lasting value</p>
+    <!-- Contact Information Section -->
+    <section class="contact-section">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Ready to Start Your Project?</h3>
+                <p>Get in touch with our team of experts. We're here to help bring your vision to life with quality craftsmanship and transparent pricing.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@keysolutions.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Fri: 7AM-6PM, Sat: 8AM-4PM</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Licensed, Bonded & Insured</span>
+                    </div>
+                </div>
             </div>
+            <div class="service-area">
+                <h4>Service Areas</h4>
+                <p>We proudly serve the following areas with our expert construction services:</p>
+                <ul class="service-area-list">
+                    <li>• Downtown Metro</li>
+                    <li>• Northside District</li>
+                    <li>• Westside Communities</li>
+                    <li>• Eastside Suburbs</li>
+                    <li>• Southside Neighborhoods</li>
+                    <li>• Surrounding Counties</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add click handler to concrete slab image
+        document.querySelector('.hero-slab-image').addEventListener('click', function() {
+            const popup = document.getElementById('concrete-pricing');
+            const isVisible = popup.classList.contains('show');
             
-            <div class="slab-content">
-                <div class="overview-grid">
-                    <div class="info-card slab-info-card">
-                        <h3>Why Choose Our Concrete Slabs?</h3>
-                        <ul>
-                            <li><strong>10+ Years Experience</strong> - Custom home building expertise</li>
-                            <li><strong>Premium Materials</strong> - High-grade concrete and reinforcement</li>
-                            <li><strong>Custom Patterns</strong> - Stamped, colored, and textured options</li>
-                            <li><strong>5+ Year Warranty</strong> - Guaranteed workmanship</li>
-                            <li><strong>Fast Installation</strong> - Typically completed in 1-2 days</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card slab-info-card">
-                        <h3>Investment & ROI</h3>
-                        <div class="roi-grid">
-                            <div class="roi-item">
-                                <h4>$8-15/sq ft</h4>
-                                <p>Installation Cost</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>70-85%</h4>
-                                <p>Home Value Return</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>20+ Years</h4>
-                                <p>Lifespan</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>15-25%</h4>
-                                <p>Property Value Increase</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="projects-section">
-                    <h3>Recent Slab Projects</h3>
-                    <div class="projects-grid">
-                        <article class="project-card">
-                            <img src="images/(Slab) Square.jpg" alt="Square Pattern Slab - Clean geometric design">
-                            <div class="project-info">
-                                <h4>Square Pattern Slabs</h4>
-                                <p>Clean geometric design, perfect for modern homes</p>
-                                <span class="project-cost">$12/sq ft</span>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <img src="images/(Slab) Natural.png" alt="Natural Stone Pattern - Elegant stone-like texture">
-                            <div class="project-info">
-                                <h4>Natural Stone Pattern</h4>
-                                <p>Elegant stone-like texture, premium finish</p>
-                                <span class="project-cost">$15/sq ft</span>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <img src="images/(Slab) Cobble.png" alt="Cobble Pattern Slab - Classic European cobblestone appearance">
-                            <div class="project-info">
-                                <h4>Cobble Pattern</h4>
-                                <p>Classic European cobblestone appearance</p>
-                                <span class="project-cost">$14/sq ft</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <h3>Ready to Transform Your Space?</h3>
-                    <p>Get a free quote for your concrete slab project</p>
-                    <a href="#lead-magnet" class="btn-primary">Get Free Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            if (!isVisible) {
+                popup.classList.add('show');
+            } else {
+                popup.classList.remove('show');
+            }
+        });
 
-    <!-- Deck Details Section -->
-    <section id="deck-details" class="section deck-details" style="display: none;" aria-hidden="true">
-        <div class="container">
-            <div class="section-header">
-                <h2>Custom Deck Construction</h2>
-                <p>Expert carpentry work that elevates your outdoor living experience</p>
-            </div>
+        // Add click handler to deck image
+        document.querySelector('.hero-deck-image').addEventListener('click', function() {
+            const popup = document.getElementById('deck-pricing');
+            const isVisible = popup.classList.contains('show');
             
-            <div class="deck-content">
-                <div class="overview-grid">
-                    <div class="info-card deck-info-card">
-                        <h3>Why Choose Our Deck Construction?</h3>
-                        <ul>
-                            <li><strong>Master Carpenter</strong> - 10+ years custom home building experience</li>
-                            <li><strong>Premium Materials</strong> - Pressure treated, composite, and exotic hardwoods</li>
-                            <li><strong>Custom Design</strong> - Tailored to your home's architecture and lifestyle</li>
-                            <li><strong>5+ Year Warranty</strong> - Guaranteed workmanship and materials</li>
-                            <li><strong>Licensed & Insured</strong> - Full protection for your investment</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card deck-info-card">
-                        <h3>Investment & ROI</h3>
-                        <div class="roi-grid">
-                            <div class="roi-item">
-                                <h4>$15-35/sq ft</h4>
-                                <p>Installation Cost</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>75-90%</h4>
-                                <p>Home Value Return</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>25+ Years</h4>
-                                <p>Lifespan</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>20-30%</h4>
-                                <p>Property Value Increase</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="projects-section">
-                    <h3>Deck Types & Materials</h3>
-                    <div class="projects-grid">
-                        <article class="project-card">
-                            <img src="images/(Carpentry) Deck 2.png" alt="Pressure Treated Deck - Durable, cost-effective">
-                            <div class="project-info">
-                                <h4>Pressure Treated Deck</h4>
-                                <p>Durable, cost-effective, perfect for family living</p>
-                                <span class="project-cost">$15-25/sq ft</span>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <img src="images/(Carpentry) Structure 1.png" alt="Composite Decking - Low maintenance, weather-resistant">
-                            <div class="project-info">
-                                <h4>Composite Decking</h4>
-                                <p>Low maintenance, weather-resistant, premium finish</p>
-                                <span class="project-cost">$25-35/sq ft</span>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <img src="images/(Carpentry) Structure up close.png" alt="Custom Pergola Deck - Complete outdoor living space">
-                            <div class="project-info">
-                                <h4>Deck with Pergola</h4>
-                                <p>Complete outdoor living space with covered areas</p>
-                                <span class="project-cost">$30-45/sq ft</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                
-                <div class="deck-features">
-                    <h3>Deck Features & Add-ons</h3>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <h4>Built-in Seating</h4>
-                            <p>Custom benches and seating areas</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>Railings & Gates</h4>
-                            <p>Safety and privacy solutions</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>Lighting</h4>
-                            <p>LED deck lighting for evening use</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>Storage</h4>
-                            <p>Built-in storage compartments</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <h3>Ready to Build Your Dream Deck?</h3>
-                    <p>Get a free consultation and quote for your custom deck project</p>
-                    <a href="#lead-magnet" class="btn-primary">Get Free Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            if (!isVisible) {
+                popup.classList.add('show');
+            } else {
+                popup.classList.remove('show');
+            }
+        });
 
-    <!-- Roof Details Section -->
-    <section id="roof-details" class="section roof-details" style="display: none;" aria-hidden="true">
-        <div class="container">
-            <div class="section-header">
-                <h2>Professional Roofing Services</h2>
-                <p>Expert roofing solutions that protect your most valuable investment</p>
-            </div>
+        // Add click handler to roofing image
+        document.querySelector('.hero-roof-image').addEventListener('click', function() {
+            const popup = document.getElementById('roofing-pricing');
+            const isVisible = popup.classList.contains('show');
             
-            <div class="roof-content">
-                <div class="overview-grid">
-                    <div class="info-card roof-info-card">
-                        <h3>Why Choose Our Roofing Services?</h3>
-                        <ul>
-                            <li><strong>Licensed & Insured</strong> - Full protection for your property</li>
-                            <li><strong>Quality Materials</strong> - Premium shingles, metal, and flat roofing systems</li>
-                            <li><strong>Expert Installation</strong> - Proper ventilation, flashing, and weatherproofing</li>
-                            <li><strong>5+ Year Warranty</strong> - Guaranteed workmanship and materials</li>
-                            <li><strong>Emergency Repairs</strong> - Fast response for storm damage and leaks</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card roof-info-card">
-                        <h3>Investment & ROI</h3>
-                        <div class="roi-grid">
-                            <div class="roi-item">
-                                <h4>$3-8/sq ft</h4>
-                                <p>Installation Cost</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>60-75%</h4>
-                                <p>Home Value Return</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>20-50 Years</h4>
-                                <p>Lifespan</p>
-                            </div>
-                            <div class="roi-item">
-                                <h4>Energy Savings</h4>
-                                <p>15-25% reduction</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="projects-section">
-                    <h3>Roofing Types & Materials</h3>
-                    <div class="projects-grid">
-                        <article class="project-card">
-                            <img src="images/(roof) 3.jpeg" alt="Asphalt Shingle Roof - Most popular, cost-effective">
-                            <div class="project-info">
-                                <h4>Asphalt Shingle Roof</h4>
-                                <p>Most popular, cost-effective, variety of colors and styles</p>
-                                <span class="project-cost">$3-6/sq ft</span>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <img src="images/(roof) 2.jpg" alt="Metal Roofing - Durable, energy-efficient">
-                            <div class="project-info">
-                                <h4>Metal Roofing</h4>
-                                <p>Durable, energy-efficient, modern appearance</p>
-                                <span class="project-cost">$5-12/sq ft</span>
-                            </div>
-                        </article>
-                        <article class="project-card">
-                            <img src="images/(roof) 1.jpeg" alt="Flat Roof System - Commercial-grade">
-                            <div class="project-info">
-                                <h4>Flat Roof System</h4>
-                                <p>Commercial-grade, perfect for additions and garages</p>
-                                <span class="project-cost">$4-8/sq ft</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                
-                <div class="roof-services">
-                    <h3>Roofing Services</h3>
-                    <div class="services-grid">
-                        <div class="service-item">
-                            <h4>Complete Replacement</h4>
-                            <p>Full roof removal and installation</p>
-                        </div>
-                        <div class="service-item">
-                            <h4>Repairs & Maintenance</h4>
-                            <p>Leak repairs, shingle replacement, flashing</p>
-                        </div>
-                        <div class="service-item">
-                            <h4>Storm Damage</h4>
-                            <p>Emergency repairs and insurance claims</p>
-                        </div>
-                        <div class="service-item">
-                            <h4>Gutter Systems</h4>
-                            <p>Installation and maintenance</p>
-                        </div>
-                        <div class="service-item">
-                            <h4>Ventilation</h4>
-                            <p>Proper attic ventilation systems</p>
-                        </div>
-                        <div class="service-item">
-                            <h4>Insulation</h4>
-                            <p>Roof and attic insulation upgrades</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <h3>Protect Your Home with Quality Roofing</h3>
-                    <p>Get a free inspection and quote for your roofing project</p>
-                    <a href="#lead-magnet" class="btn-primary">Get Free Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            if (!isVisible) {
+                popup.classList.add('show');
+            } else {
+                popup.classList.remove('show');
+            }
+        });
 
-    <!-- Lead Magnet Section -->
-    <section id="lead-magnet" class="lead-magnet">
-        <div class="container">
-            <div class="lead-content">
-                <div class="lead-text">
-                    <h2>Let's Transform Your Outdoor Space</h2>
-                    <p>Every exceptional concrete installation begins with a conversation. Share your vision with us, and we'll provide a comprehensive project plan backed by our 5-year craftsmanship guarantee.</p>
-                </div>
-                <div class="lead-form">
-                    <h3>Tell Us About Your Vision</h3>
-                    <form id="quoteForm" novalidate>
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required aria-describedby="name-error">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required aria-describedby="email-error">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required aria-describedby="phone-error">
-                        </div>
-                        <div class="form-group">
-                            <label for="project">Project Type *</label>
-                            <select id="project" name="project" required aria-describedby="project-error">
-                                <option value="">Select Project Type</option>
-                                <option value="carpentry">Custom Carpentry Work</option>
-                                <option value="deck">Deck Construction</option>
-                                <option value="pergola">Pergola/Covered Structures</option>
-                                <option value="concrete-slab">Stamped Concrete Slab</option>
-                                <option value="roofing">Roofing Services</option>
-                                <option value="roof-repair">Roof Repair/Replacement</option>
-                                <option value="concrete-repair">Concrete Repair/Replacement</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">Select Timeline</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-month">Within 1 Month</option>
-                                <option value="3-months">Within 3 Months</option>
-                                <option value="6-months">Within 6 Months</option>
-                                <option value="planning">Just Planning</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your concrete project - size, style, colors, patterns..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">
-                            Begin Your Project
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Close popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.image-container') && !e.target.closest('.concrete-pricing-popup') && !e.target.closest('.deck-pricing-popup') && !e.target.closest('.roofing-pricing-popup')) {
+                document.querySelectorAll('.concrete-pricing-popup, .deck-pricing-popup, .roofing-pricing-popup').forEach(p => {
+                    p.classList.remove('show');
+                });
+            }
+        });
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Key Solutions</h4>
-                    <p>Custom carpentry, premium concrete slabs, and professional roofing engineered to last. Every project backed by our 5-year craftsmanship guarantee.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <a href="#services">Custom Carpentry</a>
-                    <a href="#services">Premium Concrete Slabs</a>
-                    <a href="#services">Professional Roofing</a>
-                    <a href="#services">Complete Construction Solutions</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Warranty</h4>
-                    <a href="#warranty">5-Year Minimum</a>
-                    <a href="#warranty">Extended Options</a>
-                    <a href="#warranty">Workmanship Guarantee</a>
-                    <a href="#warranty">Material Warranty</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Email: info@keysolutions.com</p>
-                    <p>Licensed, Bonded & Insured</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Key Solutions. All rights reserved. | Licensed, Bonded & Insured</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
+        // Handle quote button click
+        document.querySelector('.btn-get-quote').addEventListener('click', function() {
+            alert('Thank you! We\'ll contact you within 24 hours with your free quote.');
+        });
+    </script>
 </body>
 </html>
