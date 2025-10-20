@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Estimator - Key Solutions Contracting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #2d3748;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #718096;
+        }
+
+        .estimator-tool {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .estimator-tool h2 {
+            color: #2d3748;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .size-section {
+            margin-bottom: 30px;
+        }
+
+        .size-section h3 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .size-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .size-btn {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #2d3748;
+            text-align: center;
+            position: relative;
+        }
+
+        .size-btn:hover {
+            border-color: #2f5233;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(47, 82, 51, 0.2);
+        }
+
+        .size-btn.selected {
+            background: #2f5233;
+            color: #ffffff;
+            border-color: #2f5233;
+        }
+
+        .size-btn .size-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .size-btn .size-dims {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .size-btn .size-sqft {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        .custom-dimensions {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            margin-top: 15px;
+        }
+
+        .custom-dimensions h4 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .dimension-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .dimension-inputs input {
+            padding: 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .finish-section {
+            margin-bottom: 30px;
+        }
+
+        .finish-section h3 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .finish-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .finish-selection select {
+            padding: 12px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: #ffffff;
+        }
+
+        .estimate-display {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #2f5233;
+            text-align: center;
+        }
+
+        .estimate-display h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .estimate-range {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2f5233;
+            margin-bottom: 10px;
+        }
+
+        .estimate-details {
+            color: #718096;
+            font-size: 1rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: #2f5233;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #1e3a20;
+        }
+
+        @media (max-width: 768px) {
+            .size-buttons {
+                grid-template-columns: 1fr;
+            }
+            .finish-selection {
+                grid-template-columns: 1fr;
+            }
+            .dimension-inputs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Cost Estimator</h1>
+            <p>Get an instant estimate for your project using our simple calculator</p>
+        </div>
+
+        <div class="estimator-tool">
+            <h2>Calculate Your Project Cost</h2>
+            
+            <div class="size-section">
+                <h3>1. Choose Your Project Size</h3>
+                <div class="size-buttons">
+                    <button class="size-btn small" data-size="64">
+                        <div class="size-label">Small</div>
+                        <div class="size-dims">8×8 ft</div>
+                        <div class="size-sqft">64 sq ft</div>
+                    </button>
+                    <button class="size-btn medium" data-size="128">
+                        <div class="size-label">Medium</div>
+                        <div class="size-dims">8×16 ft</div>
+                        <div class="size-sqft">128 sq ft</div>
+                    </button>
+                    <button class="size-btn large" data-size="384">
+                        <div class="size-label">Large</div>
+                        <div class="size-dims">16×24 ft</div>
+                        <div class="size-sqft">384 sq ft</div>
+                    </button>
+                    <button class="size-btn custom" id="customBtn">
+                        <div class="size-label">Custom</div>
+                        <div class="size-dims">Your Size</div>
+                        <div class="size-sqft">Calculate</div>
+                    </button>
+                </div>
+                
+                <div class="custom-dimensions" id="customDimensions" style="display:none;">
+                    <h4>Enter Your Dimensions</h4>
+                    <div class="dimension-inputs">
+                        <input type="number" placeholder="Length (feet)" id="customLength">
+                        <input type="number" placeholder="Width (feet)" id="customWidth">
+                    </div>
+                </div>
+            </div>
+
+            <div class="finish-section">
+                <h3>2. Select Your Finish Type</h3>
+                <div class="finish-selection">
+                    <select id="finishType">
+                        <option value="">Select Finish Type</option>
+                        <option value="concrete">Concrete & Flatwork</option>
+                        <option value="deck">Carpentry (Deck)</option>
+                        <option value="roofing">Roofing & Building Envelope</option>
+                    </select>
+                    
+                    <select id="finishOption" disabled>
+                        <option value="">Select Finish</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="estimate-display">
+                <h3>Your Estimate</h3>
+                <div class="estimate-range" id="estimateRange">Select size and finish</div>
+                <div class="estimate-details" id="estimateDetails"></div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">← Back to Main Site</a>
+        </div>
+    </div>
+
+    <script>
+        // Pricing data
+        const pricing = {
+            concrete: {
+                'Broom Finish': [8, 11],
+                'Pavers': [11, 14],
+                'Square Pattern': [10, 13],
+                'Natural Stone': [14, 17]
+            },
+            deck: {
+                'Pressure Treated': [15, 18],
+                'Composite Decking': [23, 26],
+                'Hardwood Decking': [27, 30],
+                'Deck with Pergola': [31, 34]
+            },
+            roofing: {
+                'Asphalt Shingles': [4, 7],
+                'Metal Roofing': [5, 8],
+                'Flat Roof System': [4, 7],
+                'Slate/Tile': [8, 11]
+            }
+        };
+
+        let selectedSize = null;
+        let selectedFinish = null;
+
+        // Size button handlers
+        document.querySelectorAll('.size-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove previous selection
+                document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+                
+                // Add selection to clicked button
+                this.classList.add('selected');
+                
+                if (this.id === 'customBtn') {
+                    document.getElementById('customDimensions').style.display = 'block';
+                    selectedSize = null;
+                } else {
+                    document.getElementById('customDimensions').style.display = 'none';
+                    selectedSize = parseInt(this.dataset.size);
+                    updateEstimate();
+                }
+            });
+        });
+
+        // Custom dimensions
+        document.getElementById('customLength').addEventListener('input', updateCustomSize);
+        document.getElementById('customWidth').addEventListener('input', updateCustomSize);
+
+        function updateCustomSize() {
+            const length = parseFloat(document.getElementById('customLength').value) || 0;
+            const width = parseFloat(document.getElementById('customWidth').value) || 0;
+            selectedSize = length * width;
+            updateEstimate();
+        }
+
+        // Finish type selection
+        document.getElementById('finishType').addEventListener('change', function() {
+            const finishOption = document.getElementById('finishOption');
+            finishOption.innerHTML = '<option value="">Select Finish</option>';
+            
+            if (this.value && pricing[this.value]) {
+                finishOption.disabled = false;
+                Object.keys(pricing[this.value]).forEach(finish => {
+                    const option = document.createElement('option');
+                    option.value = finish;
+                    option.textContent = finish;
+                    finishOption.appendChild(option);
+                });
+            } else {
+                finishOption.disabled = true;
+            }
+            
+            selectedFinish = null;
+            updateEstimate();
+        });
+
+        // Finish option selection
+        document.getElementById('finishOption').addEventListener('change', function() {
+            selectedFinish = this.value;
+            updateEstimate();
+        });
+
+        // Update estimate
+        function updateEstimate() {
+            const estimateRange = document.getElementById('estimateRange');
+            const estimateDetails = document.getElementById('estimateDetails');
+            
+            if (!selectedSize || !selectedFinish) {
+                estimateRange.textContent = 'Select size and finish';
+                estimateDetails.textContent = '';
+                return;
+            }
+            
+            const finishType = document.getElementById('finishType').value;
+            const priceRange = pricing[finishType][selectedFinish];
+            const lowEstimate = Math.round(selectedSize * priceRange[0]);
+            const highEstimate = Math.round(selectedSize * priceRange[1]);
+            
+            estimateRange.textContent = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
+            estimateDetails.textContent = `${selectedSize} sq ft × $${priceRange[0]}-${priceRange[1]}/sq ft`;
+        }
+    </script>
+</body>
+</html>
