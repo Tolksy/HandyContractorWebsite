@@ -458,7 +458,67 @@
             font-weight: 600;
         }
 
+        .company-corner {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ffffff;
+            border: 2px solid #2f5233;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 280px;
+            z-index: 100;
+        }
+
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .company-tagline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2f5233;
+            margin-bottom: 10px;
+        }
+
+        .company-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background: #e8f5e8;
+            color: #2f5233;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-areas {
+            font-size: 0.9rem;
+            color: #718096;
+            line-height: 1.4;
+        }
+
+        .service-areas strong {
+            color: #2d3748;
+        }
+
         @media (max-width: 768px) {
+            .company-corner {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 0 auto 20px;
+                max-width: 100%;
+            }
             .hero h1 {
                 font-size: 2rem;
             }
@@ -476,6 +536,18 @@
 </head>
 <body>
     <section class="hero">
+        <div class="company-corner">
+            <div class="company-name">Key Solutions</div>
+            <div class="company-tagline">Expert Contractors</div>
+            <div class="company-badges">
+                <span class="badge">Licensed & Insured</span>
+                <span class="badge">All Work Guaranteed</span>
+            </div>
+            <div class="service-areas">
+                <strong>Serving Vancouver Island</strong><br>
+                Ladysmith • Duncan • Nanaimo • Parksville
+            </div>
+        </div>
         <div class="hero-content">
             <div class="warranty-badge">
                 <i class="fas fa-shield-alt"></i>
