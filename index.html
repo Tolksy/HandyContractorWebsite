@@ -306,10 +306,14 @@
 
         .booking-section {
             background: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 30px 0;
+            padding: 40px 0;
             text-align: center;
+        }
+
+        .booking-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .booking-section h3 {
@@ -487,45 +491,6 @@
             <a href="estimator.html" class="estimator-button">💰 Get Instant Estimate</a>
             <a href="winter-special.html" class="winter-special">🔥 WINTER SPECIAL: 25% OFF</a>
             
-            <div class="booking-section">
-                <h3>📅 Book Your Project Start Date</h3>
-                <p>Choose your ideal start date and we'll call you to discuss what's possible for your project.</p>
-                
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <button class="calendar-nav" id="prevMonth">‹</button>
-                        <div class="calendar-month" id="currentMonth"></div>
-                        <button class="calendar-nav" id="nextMonth">›</button>
-                    </div>
-                    <div class="calendar-grid" id="calendarGrid"></div>
-                    
-                    <div class="booking-form">
-                        <label for="customerName">Your Name:</label>
-                        <input type="text" id="customerName" required>
-                        
-                        <label for="customerPhone">Phone Number:</label>
-                        <input type="tel" id="customerPhone" required>
-                        
-                        <label for="projectType">Project Type:</label>
-                        <select id="projectType" required>
-                            <option value="">Select Project Type</option>
-                            <option value="concrete">Concrete & Flatwork</option>
-                            <option value="carpentry">Carpentry (Deck)</option>
-                            <option value="roofing">Roofing & Building Envelope</option>
-                        </select>
-                        
-                        <label for="projectDetails">Project Details:</label>
-                        <textarea id="projectDetails" placeholder="Brief description of your project..." rows="3"></textarea>
-                        
-                        <button class="btn-book" id="bookProject">Book My Project</button>
-                        
-                        <div class="booking-confirmation" id="bookingConfirmation">
-                            ✅ Booking saved! We'll call you to confirm details and discuss your project.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="hero-images">
                 <div class="image-container">
                     <h3 class="image-title">Concrete and Flatwork</h3>
@@ -597,6 +562,47 @@
                             <span class="price">$8-11/sq ft</span>
                         </div>
                         <button class="btn-get-quote">Get Your Free Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="booking-content">
+            <h3>📅 Book Your Project Start Date</h3>
+            <p>Choose your ideal start date and we'll call you to discuss what's possible for your project.</p>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="calendar-nav" id="prevMonth">‹</button>
+                    <div class="calendar-month" id="currentMonth"></div>
+                    <button class="calendar-nav" id="nextMonth">›</button>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+                
+                <div class="booking-form">
+                    <label for="customerName">Your Name:</label>
+                    <input type="text" id="customerName" required>
+                    
+                    <label for="customerPhone">Phone Number:</label>
+                    <input type="tel" id="customerPhone" required>
+                    
+                    <label for="projectType">Project Type:</label>
+                    <select id="projectType" required>
+                        <option value="">Select Project Type</option>
+                        <option value="concrete">Concrete & Flatwork</option>
+                        <option value="carpentry">Carpentry (Deck)</option>
+                        <option value="roofing">Roofing & Building Envelope</option>
+                    </select>
+                    
+                    <label for="projectDetails">Project Details:</label>
+                    <textarea id="projectDetails" placeholder="Brief description of your project..." rows="3"></textarea>
+                    
+                    <button class="btn-book" id="bookProject">Book My Project</button>
+                    
+                    <div class="booking-confirmation" id="bookingConfirmation">
+                        ✅ Booking saved! We'll call you to confirm details and discuss your project.
                     </div>
                 </div>
             </div>
