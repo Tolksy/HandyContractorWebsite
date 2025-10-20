@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cost Estimator - Key Solutions Contracting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -15,13 +15,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: #2d3748;
+            color: #374151;
             background: #ffffff;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -34,24 +34,24 @@
         .header h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #2d3748;
+            color: #111827;
             margin-bottom: 15px;
         }
 
         .header p {
             font-size: 1.2rem;
-            color: #718096;
+            color: #6b7280;
         }
 
         .estimator-tool {
-            background: #f8f9fa;
+            background: #f9fafb;
             padding: 40px;
             border-radius: 16px;
             margin-bottom: 30px;
         }
 
         .estimator-tool h2 {
-            color: #2d3748;
+            color: #111827;
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 30px;
@@ -63,7 +63,7 @@
         }
 
         .size-section h3 {
-            color: #2d3748;
+            color: #111827;
             font-size: 1.3rem;
             margin-bottom: 20px;
         }
@@ -77,27 +77,27 @@
 
         .size-btn {
             background: #ffffff;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e5e7eb;
             border-radius: 12px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 600;
-            color: #2d3748;
+            color: #374151;
             text-align: center;
             position: relative;
         }
 
         .size-btn:hover {
-            border-color: #2f5233;
+            border-color: #1a4d1a;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(47, 82, 51, 0.2);
+            box-shadow: 0 4px 12px rgba(26, 77, 26, 0.2);
         }
 
         .size-btn.selected {
-            background: #2f5233;
+            background: #1a4d1a;
             color: #ffffff;
-            border-color: #2f5233;
+            border-color: #1a4d1a;
         }
 
         .size-btn .size-label {
@@ -117,16 +117,125 @@
             margin-top: 5px;
         }
 
+        /* Visual Designer */
+        .visual-designer {
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .designer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .designer-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .designer-tools {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tool-btn {
+            background: #1a4d1a;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .tool-btn:hover {
+            background: #14532d;
+        }
+
+        .tool-btn.active {
+            background: #dc2626;
+        }
+
+        .tool-btn.clear {
+            background: #6b7280;
+        }
+
+        .tool-btn.clear:hover {
+            background: #4b5563;
+        }
+
+        .canvas-container {
+            position: relative;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: #ffffff;
+            margin: 20px 0;
+        }
+
+        .canvas-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .scale-indicator {
+            font-weight: 600;
+        }
+
+        .total-area {
+            font-weight: 700;
+            color: #1a4d1a;
+        }
+
+        #designCanvas {
+            display: block;
+            cursor: crosshair;
+        }
+
+        .designer-instructions {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .designer-instructions h4 {
+            color: #1a4d1a;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .designer-instructions p {
+            color: #166534;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
         .custom-dimensions {
             background: #ffffff;
             padding: 20px;
             border-radius: 12px;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e5e7eb;
             margin-top: 15px;
         }
 
         .custom-dimensions h4 {
-            color: #2d3748;
+            color: #111827;
             margin-bottom: 15px;
         }
 
@@ -138,7 +247,7 @@
 
         .dimension-inputs input {
             padding: 12px;
-            border: 1px solid #d2d2d7;
+            border: 1px solid #d1d5db;
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
@@ -149,7 +258,7 @@
         }
 
         .finish-section h3 {
-            color: #2d3748;
+            color: #111827;
             font-size: 1.3rem;
             margin-bottom: 20px;
         }
@@ -162,7 +271,7 @@
 
         .finish-selection select {
             padding: 12px;
-            border: 1px solid #d2d2d7;
+            border: 1px solid #d1d5db;
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
@@ -173,12 +282,12 @@
             background: #ffffff;
             padding: 30px;
             border-radius: 12px;
-            border: 2px solid #2f5233;
+            border: 2px solid #1a4d1a;
             text-align: center;
         }
 
         .estimate-display h3 {
-            color: #2d3748;
+            color: #111827;
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
@@ -186,18 +295,18 @@
         .estimate-range {
             font-size: 2rem;
             font-weight: 700;
-            color: #2f5233;
+            color: #1a4d1a;
             margin-bottom: 10px;
         }
 
         .estimate-details {
-            color: #718096;
+            color: #6b7280;
             font-size: 1rem;
         }
 
         .back-button {
             display: inline-block;
-            background: #2f5233;
+            background: #1a4d1a;
             color: #ffffff;
             padding: 12px 24px;
             border-radius: 8px;
@@ -208,7 +317,7 @@
         }
 
         .back-button:hover {
-            background: #1e3a20;
+            background: #14532d;
         }
 
         @media (max-width: 768px) {
@@ -221,13 +330,16 @@
             .dimension-inputs {
                 grid-template-columns: 1fr;
             }
+            .designer-tools {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>💰 Cost Estimator</h1>
+            <h1>Cost Estimator</h1>
             <p>Get an instant estimate for your project using our simple calculator</p>
         </div>
 
@@ -252,13 +364,45 @@
                         <div class="size-dims">16×24 ft</div>
                         <div class="size-sqft">384 sq ft</div>
                     </button>
+                    <button class="size-btn visual" id="visualBtn">
+                        <div class="size-label">Visual Designer</div>
+                        <div class="size-dims">Draw Your Deck</div>
+                        <div class="size-sqft">Custom Shape</div>
+                    </button>
                     <button class="size-btn custom" id="customBtn">
-                        <div class="size-label">Custom</div>
-                        <div class="size-dims">Your Size</div>
-                        <div class="size-sqft">Calculate</div>
+                        <div class="size-label">Manual Entry</div>
+                        <div class="size-dims">Enter Dimensions</div>
+                        <div class="size-sqft">Custom Size</div>
                     </button>
                 </div>
                 
+                <!-- Visual Designer -->
+                <div class="visual-designer" id="visualDesigner">
+                    <div class="designer-header">
+                        <div class="designer-title">Deck Designer</div>
+                        <div class="designer-tools">
+                            <button class="tool-btn active" id="rectangleTool">Rectangle Tool</button>
+                            <button class="tool-btn" id="deleteTool">Delete</button>
+                            <button class="tool-btn clear" id="clearAll">Clear All</button>
+                        </div>
+                    </div>
+                    <div class="canvas-container">
+                        <div class="canvas-info">
+                            <div class="scale-indicator">Scale: 1cm = 1 foot</div>
+                            <div class="total-area">Total Area: <span id="totalArea">0</span> sq ft</div>
+                        </div>
+                        <canvas id="designCanvas" width="600" height="400"></canvas>
+                    </div>
+                    <div class="designer-instructions">
+                        <h4>How to Use:</h4>
+                        <p>• Click and drag to create rectangles</p>
+                        <p>• Select "Delete" tool and click rectangles to remove them</p>
+                        <p>• Use "Clear All" to start over</p>
+                        <p>• Total area updates automatically</p>
+                    </div>
+                </div>
+                
+                <!-- Manual Entry -->
                 <div class="custom-dimensions" id="customDimensions" style="display:none;">
                     <h4>Enter Your Dimensions</h4>
                     <div class="dimension-inputs">
@@ -321,6 +465,23 @@
 
         let selectedSize = null;
         let selectedFinish = null;
+        let currentTool = 'rectangle';
+        let rectangles = [];
+        let isDrawing = false;
+        let startX, startY;
+        let canvas, ctx;
+
+        // Initialize canvas
+        function initCanvas() {
+            canvas = document.getElementById('designCanvas');
+            ctx = canvas.getContext('2d');
+            
+            // Set up canvas event listeners
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('click', handleCanvasClick);
+        }
 
         // Size button handlers
         document.querySelectorAll('.size-btn').forEach(btn => {
@@ -333,14 +494,161 @@
                 
                 if (this.id === 'customBtn') {
                     document.getElementById('customDimensions').style.display = 'block';
+                    document.getElementById('visualDesigner').style.display = 'none';
                     selectedSize = null;
+                } else if (this.id === 'visualBtn') {
+                    document.getElementById('visualDesigner').style.display = 'block';
+                    document.getElementById('customDimensions').style.display = 'none';
+                    selectedSize = calculateTotalArea();
+                    updateEstimate();
                 } else {
                     document.getElementById('customDimensions').style.display = 'none';
+                    document.getElementById('visualDesigner').style.display = 'none';
                     selectedSize = parseInt(this.dataset.size);
                     updateEstimate();
                 }
             });
         });
+
+        // Visual designer tools
+        document.getElementById('rectangleTool').addEventListener('click', function() {
+            currentTool = 'rectangle';
+            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+
+        document.getElementById('deleteTool').addEventListener('click', function() {
+            currentTool = 'delete';
+            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+
+        document.getElementById('clearAll').addEventListener('click', function() {
+            rectangles = [];
+            redrawCanvas();
+            selectedSize = 0;
+            updateEstimate();
+        });
+
+        // Canvas drawing functions
+        function startDrawing(e) {
+            if (currentTool !== 'rectangle') return;
+            
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            startX = e.clientX - rect.left;
+            startY = e.clientY - rect.top;
+        }
+
+        function draw(e) {
+            if (!isDrawing || currentTool !== 'rectangle') return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const currentX = e.clientX - rect.left;
+            const currentY = e.clientY - rect.top;
+            
+            redrawCanvas();
+            
+            // Draw preview rectangle
+            ctx.strokeStyle = '#1a4d1a';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.strokeRect(startX, startY, currentX - startX, currentY - startY);
+        }
+
+        function stopDrawing(e) {
+            if (!isDrawing || currentTool !== 'rectangle') return;
+            
+            isDrawing = false;
+            const rect = canvas.getBoundingClientRect();
+            const endX = e.clientX - rect.left;
+            const endY = e.clientY - rect.top;
+            
+            const width = Math.abs(endX - startX);
+            const height = Math.abs(endY - startY);
+            
+            if (width > 10 && height > 10) {
+                const rectangle = {
+                    x: Math.min(startX, endX),
+                    y: Math.min(startY, endY),
+                    width: width,
+                    height: height,
+                    area: (width * height) / 100 // Convert pixels to sq ft (roughly 1cm = 1ft)
+                };
+                
+                rectangles.push(rectangle);
+                redrawCanvas();
+                selectedSize = calculateTotalArea();
+                updateEstimate();
+            }
+        }
+
+        function handleCanvasClick(e) {
+            if (currentTool !== 'delete') return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            
+            // Find and remove clicked rectangle
+            for (let i = rectangles.length - 1; i >= 0; i--) {
+                const r = rectangles[i];
+                if (clickX >= r.x && clickX <= r.x + r.width &&
+                    clickY >= r.y && clickY <= r.y + r.height) {
+                    rectangles.splice(i, 1);
+                    redrawCanvas();
+                    selectedSize = calculateTotalArea();
+                    updateEstimate();
+                    break;
+                }
+            }
+        }
+
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw grid
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([]);
+            
+            for (let x = 0; x < canvas.width; x += 20) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+            
+            for (let y = 0; y < canvas.height; y += 20) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+            
+            // Draw rectangles
+            rectangles.forEach((rect, index) => {
+                ctx.fillStyle = `rgba(26, 77, 26, 0.3)`;
+                ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+                
+                ctx.strokeStyle = '#1a4d1a';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([]);
+                ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+                
+                // Draw dimensions
+                ctx.fillStyle = '#1a4d1a';
+                ctx.font = '12px Inter';
+                ctx.fillText(`${Math.round(rect.width/20)}×${Math.round(rect.height/20)}ft`, 
+                           rect.x + 5, rect.y + 15);
+            });
+        }
+
+        function calculateTotalArea() {
+            const total = rectangles.reduce((sum, rect) => sum + rect.area, 0);
+            document.getElementById('totalArea').textContent = Math.round(total);
+            return Math.round(total);
+        }
 
         // Custom dimensions
         document.getElementById('customLength').addEventListener('input', updateCustomSize);
@@ -399,6 +707,10 @@
             estimateRange.textContent = `$${lowEstimate.toLocaleString()} - $${highEstimate.toLocaleString()}`;
             estimateDetails.textContent = `${selectedSize} sq ft × $${priceRange[0]}-${priceRange[1]}/sq ft`;
         }
+
+        // Initialize
+        initCanvas();
+        redrawCanvas();
     </script>
 </body>
 </html>
