@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cost Estimator - Key Solutions Contracting</title>
+    <title>Cost Estimator - First Stop Enterprises & Key Solutions Contracting</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -470,6 +470,10 @@
         let isDrawing = false;
         let startX, startY;
         let canvas, ctx;
+        let selectedRect = null;
+        let isResizing = false;
+        let isMoving = false;
+        let resizeHandle = null;
 
         // Initialize canvas
         function initCanvas() {
@@ -523,6 +527,18 @@
             this.classList.add('active');
         });
 
+        // Add edit tool
+        const editTool = document.createElement('button');
+        editTool.className = 'tool-btn';
+        editTool.id = 'editTool';
+        editTool.textContent = 'Edit';
+        editTool.addEventListener('click', function() {
+            currentTool = 'edit';
+            document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+        });
+        document.getElementById('rectangleTool').parentNode.insertBefore(editTool, document.getElementById('deleteTool'));
+
         document.getElementById('clearAll').addEventListener('click', function() {
             rectangles = [];
             redrawCanvas();
@@ -532,54 +548,114 @@
 
         // Canvas drawing functions
         function startDrawing(e) {
-            if (currentTool !== 'rectangle') return;
-            
-            isDrawing = true;
             const rect = canvas.getBoundingClientRect();
-            startX = e.clientX - rect.left;
-            startY = e.clientY - rect.top;
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            if (currentTool === 'rectangle') {
+                isDrawing = true;
+                startX = mouseX;
+                startY = mouseY;
+            } else if (currentTool === 'edit') {
+                // Check if clicking on a rectangle
+                selectedRect = getRectangleAt(mouseX, mouseY);
+                if (selectedRect) {
+                    // Check if clicking on resize handle
+                    resizeHandle = getResizeHandle(selectedRect, mouseX, mouseY);
+                    if (resizeHandle) {
+                        isResizing = true;
+                    } else {
+                        isMoving = true;
+                        startX = mouseX;
+                        startY = mouseY;
+                    }
+                }
+            }
         }
 
         function draw(e) {
-            if (!isDrawing || currentTool !== 'rectangle') return;
-            
             const rect = canvas.getBoundingClientRect();
             const currentX = e.clientX - rect.left;
             const currentY = e.clientY - rect.top;
             
-            redrawCanvas();
-            
-            // Draw preview rectangle
-            ctx.strokeStyle = '#1a4d1a';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([5, 5]);
-            ctx.strokeRect(startX, startY, currentX - startX, currentY - startY);
-        }
-
-        function stopDrawing(e) {
-            if (!isDrawing || currentTool !== 'rectangle') return;
-            
-            isDrawing = false;
-            const rect = canvas.getBoundingClientRect();
-            const endX = e.clientX - rect.left;
-            const endY = e.clientY - rect.top;
-            
-            const width = Math.abs(endX - startX);
-            const height = Math.abs(endY - startY);
-            
-            if (width > 10 && height > 10) {
-                const rectangle = {
-                    x: Math.min(startX, endX),
-                    y: Math.min(startY, endY),
-                    width: width,
-                    height: height,
-                    area: (width * height) / 100 // Convert pixels to sq ft (roughly 1cm = 1ft)
-                };
+            if (isDrawing && currentTool === 'rectangle') {
+                redrawCanvas();
                 
-                rectangles.push(rectangle);
+                // Draw preview rectangle
+                ctx.strokeStyle = '#1a4d1a';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                ctx.strokeRect(startX, startY, currentX - startX, currentY - startY);
+            } else if (isResizing && selectedRect) {
+                // Handle resizing
+                const deltaX = currentX - startX;
+                const deltaY = currentY - startY;
+                
+                if (resizeHandle === 'se') {
+                    selectedRect.width = Math.max(20, selectedRect.width + deltaX);
+                    selectedRect.height = Math.max(20, selectedRect.height + deltaY);
+                } else if (resizeHandle === 'sw') {
+                    selectedRect.x = Math.min(selectedRect.x + selectedRect.width - 20, selectedRect.x + deltaX);
+                    selectedRect.width = Math.max(20, selectedRect.width - deltaX);
+                    selectedRect.height = Math.max(20, selectedRect.height + deltaY);
+                } else if (resizeHandle === 'ne') {
+                    selectedRect.y = Math.min(selectedRect.y + selectedRect.height - 20, selectedRect.y + deltaY);
+                    selectedRect.width = Math.max(20, selectedRect.width + deltaX);
+                    selectedRect.height = Math.max(20, selectedRect.height - deltaY);
+                } else if (resizeHandle === 'nw') {
+                    selectedRect.x = Math.min(selectedRect.x + selectedRect.width - 20, selectedRect.x + deltaX);
+                    selectedRect.y = Math.min(selectedRect.y + selectedRect.height - 20, selectedRect.y + deltaY);
+                    selectedRect.width = Math.max(20, selectedRect.width - deltaX);
+                    selectedRect.height = Math.max(20, selectedRect.height - deltaY);
+                }
+                
+                selectedRect.area = (selectedRect.width * selectedRect.height) / 100;
                 redrawCanvas();
                 selectedSize = calculateTotalArea();
                 updateEstimate();
+            } else if (isMoving && selectedRect) {
+                // Handle moving
+                const deltaX = currentX - startX;
+                const deltaY = currentY - startY;
+                
+                selectedRect.x = Math.max(0, Math.min(canvas.width - selectedRect.width, selectedRect.x + deltaX));
+                selectedRect.y = Math.max(0, Math.min(canvas.height - selectedRect.height, selectedRect.y + deltaY));
+                
+                startX = currentX;
+                startY = currentY;
+                redrawCanvas();
+            }
+        }
+
+        function stopDrawing(e) {
+            if (isDrawing && currentTool === 'rectangle') {
+                isDrawing = false;
+                const rect = canvas.getBoundingClientRect();
+                const endX = e.clientX - rect.left;
+                const endY = e.clientY - rect.top;
+                
+                const width = Math.abs(endX - startX);
+                const height = Math.abs(endY - startY);
+                
+                if (width > 10 && height > 10) {
+                    const rectangle = {
+                        x: Math.min(startX, endX),
+                        y: Math.min(startY, endY),
+                        width: width,
+                        height: height,
+                        area: (width * height) / 100 // Convert pixels to sq ft (roughly 1cm = 1ft)
+                    };
+                    
+                    rectangles.push(rectangle);
+                    redrawCanvas();
+                    selectedSize = calculateTotalArea();
+                    updateEstimate();
+                }
+            } else if (isResizing || isMoving) {
+                isResizing = false;
+                isMoving = false;
+                selectedRect = null;
+                resizeHandle = null;
             }
         }
 
@@ -628,20 +704,74 @@
             
             // Draw rectangles
             rectangles.forEach((rect, index) => {
-                ctx.fillStyle = `rgba(26, 77, 26, 0.3)`;
+                const isSelected = rect === selectedRect;
+                
+                ctx.fillStyle = isSelected ? `rgba(26, 77, 26, 0.4)` : `rgba(26, 77, 26, 0.3)`;
                 ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
                 
-                ctx.strokeStyle = '#1a4d1a';
-                ctx.lineWidth = 2;
+                ctx.strokeStyle = isSelected ? '#dc2626' : '#1a4d1a';
+                ctx.lineWidth = isSelected ? 3 : 2;
                 ctx.setLineDash([]);
                 ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
                 
+                // Draw resize handles for selected rectangle
+                if (isSelected) {
+                    drawResizeHandles(rect);
+                }
+                
                 // Draw dimensions
-                ctx.fillStyle = '#1a4d1a';
+                ctx.fillStyle = isSelected ? '#dc2626' : '#1a4d1a';
                 ctx.font = '12px Inter';
                 ctx.fillText(`${Math.round(rect.width/20)}×${Math.round(rect.height/20)}ft`, 
                            rect.x + 5, rect.y + 15);
             });
+        }
+
+        function drawResizeHandles(rect) {
+            const handleSize = 8;
+            const handles = [
+                { x: rect.x - handleSize/2, y: rect.y - handleSize/2, type: 'nw' },
+                { x: rect.x + rect.width - handleSize/2, y: rect.y - handleSize/2, type: 'ne' },
+                { x: rect.x - handleSize/2, y: rect.y + rect.height - handleSize/2, type: 'sw' },
+                { x: rect.x + rect.width - handleSize/2, y: rect.y + rect.height - handleSize/2, type: 'se' }
+            ];
+            
+            handles.forEach(handle => {
+                ctx.fillStyle = '#dc2626';
+                ctx.fillRect(handle.x, handle.y, handleSize, handleSize);
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(handle.x, handle.y, handleSize, handleSize);
+            });
+        }
+
+        function getRectangleAt(x, y) {
+            for (let i = rectangles.length - 1; i >= 0; i--) {
+                const rect = rectangles[i];
+                if (x >= rect.x && x <= rect.x + rect.width &&
+                    y >= rect.y && y <= rect.y + rect.height) {
+                    return rect;
+                }
+            }
+            return null;
+        }
+
+        function getResizeHandle(rect, x, y) {
+            const handleSize = 8;
+            const handles = [
+                { x: rect.x - handleSize/2, y: rect.y - handleSize/2, type: 'nw' },
+                { x: rect.x + rect.width - handleSize/2, y: rect.y - handleSize/2, type: 'ne' },
+                { x: rect.x - handleSize/2, y: rect.y + rect.height - handleSize/2, type: 'sw' },
+                { x: rect.x + rect.width - handleSize/2, y: rect.y + rect.height - handleSize/2, type: 'se' }
+            ];
+            
+            for (let handle of handles) {
+                if (x >= handle.x && x <= handle.x + handleSize &&
+                    y >= handle.y && y <= handle.y + handleSize) {
+                    return handle.type;
+                }
+            }
+            return null;
         }
 
         function calculateTotalArea() {
